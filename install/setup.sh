@@ -27,7 +27,7 @@ sudo cp /opt/python-news-app/install/python-news-app.service /etc/systemd/system
 
 # Create directory for storing gunicorn logs
 sudo mkdir -p /var/log/python-news-app/gunicorn/
-sudo chown -R ec2-user:ec2-user /var/log/python-news-app/gunicorn/
+sudo chown -R ec2-user:ec2-user /var/log/python-news-app/
 
 # Start & Enable the service
 sudo systemctl daemon-reload
