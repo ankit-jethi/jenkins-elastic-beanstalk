@@ -1,0 +1,18 @@
+[Unit]
+Description=Python News Application
+After=network.target
+
+[Service]
+User=ec2-user
+Group=ec2-user
+WorkingDirectory=/opt/python-news-app/
+ExecStart=/opt/python-news-app/bin/gunicorn \
+                --bind 0.0.0.0:8000 application \
+                --workers 4 \
+                --access-logfile /var/log/python-news-app/gunicorn/gunicorn_access.log \
+                --error-logfile /var/log/python-news-app/gunicorn/gunicorn_error.log
+ExecReload=/bin/kill -s HUP $MAINPID
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
