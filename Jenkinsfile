@@ -27,13 +27,26 @@ pipeline {
              --region $REGION'
          }
       }
-      stage('Update EB environment') {
+      stage('Deploy to Staging EB environment') {
          steps {
              sh 'aws elasticbeanstalk update-environment \
              --environment-name "$ENVIRONMENT_NAME" \
              --version-label "$VERSION_LABEL" \
              --region $REGION'
          }
-      }      
+      }  
+      stage('Deploy to Production EB environment') {
+         environment { 
+            ENVIRONMENT_NAME = "python-news-app-production"
+         }
+         steps {
+            input 'Does the staging environment look ok?'
+            milestone(1)
+             sh 'aws elasticbeanstalk update-environment \
+             --environment-name "$ENVIRONMENT_NAME" \
+             --version-label "$VERSION_LABEL" \
+             --region $REGION'
+         }
+      }           
    }
 }
