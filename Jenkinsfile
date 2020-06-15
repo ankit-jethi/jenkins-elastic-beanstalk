@@ -11,7 +11,7 @@ pipeline {
    stages {
       stage('Upload code to S3') {
          steps {
-            sh 'zip -r $ZIP_NAME * && \
+            sh 'zip -r $ZIP_NAME * .[^.]* -x ".git*" && \
             aws s3 cp $ZIP_NAME s3://$BUCKET_NAME && \
             rm -f $ZIP_NAME'
          }
