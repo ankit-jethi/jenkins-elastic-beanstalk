@@ -76,3 +76,5 @@ Gunicorn log files:
 6. [Rolling updates](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.rollingupdates.html)
 7. [Configuring Elastic Beanstalk environments (advanced)](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/beanstalk-environment-configuration-advanced.html)
 8. [Log Streaming feature](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.cloudwatchlogs.html)
+9. [Systemd Service](https://www.freedesktop.org/software/systemd/man/systemd.service.html)
+10. [Gunicorn Documentation](http://docs.gunicorn.org/)
